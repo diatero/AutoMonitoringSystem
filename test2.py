@@ -83,6 +83,7 @@ class FileDialogdemo(QWidget):
         self.outputView=QLabel(self)
         self.outputView.setStyleSheet("QLabel{border: 3px solid #6495ED;border-radius:10px;}")
         self.text1=QLabel(self)
+
         self.goalPic.setText('         目标行人图像')
         # self.goalPic.setStyleSheet("QLabel{color:black;margin-left:50; font-size:20px}")
     
@@ -129,10 +130,12 @@ class FileDialogdemo(QWidget):
 
 
     def getImage(self):
+        x=self.goalPic.size()
         fname,_=QFileDialog.getOpenFileName(self,'Open file','./','Image files (*.* )')
         self.goalPic.setPixmap(QPixmap(fname))
         self.goalPic.setScaledContents(1)
-        self.goalPic.setFixedSize(250,450)
+        self.goalPic.setFixedSize(x)
+        
         
         
         # self.goalPic.resize(self.goalPic.sizeHint())
